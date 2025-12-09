@@ -1,0 +1,35 @@
+Project overview
+- This is a CPU scheduling simulator built as a Python CLI.
+- It lets you load a workload of processes (arrival time, burst time, optional priority) and run multiple scheduling algorithms to see how they behave.
+- Output includes a Gantt-style timeline and per-process metrics (waiting, turnaround, response), plus system metrics like throughput, CPU utilization, and starvation count (when applicable).
+
+Key features
+- Algorithms: FCFS, SJF (non-preemptive), Round Robin (RR), Priority, SRTF, and MLFQ.
+- Interactive menu: no flags needed—choose algorithm, workload, and (for RR/MLFQ) quantum directly from prompts.
+- Workload loading: use bundled examples in examples/ (e.g., workload_small.json, runway_workload.json) or point to your own JSON/CSV.
+- Visualization: renders a rich Gantt chart in the terminal plus tables for metrics.
+- Comparison mode: quickly compare algorithms on the same workload to see how averages differ.
+
+How to run (menu flow)
+1) Activate your venv and install requirements, then launch:
+   python -m scheduler_cli menu
+2) The menu shows the current workload and algorithm choices.
+3) Pick an algorithm by number. If it is RR or MLFQ, you will be prompted for a time quantum (default provided).
+4) Optionally switch workloads: choose from listed examples or enter a path.
+5) Optionally animate the run (time-stepped view).
+6) The tool prints the Gantt timeline, per-process metrics, and summary stats.
+7) Use the menu compare options to run the full set on the current workload or the runway workload.
+
+Workload format
+- JSON array of processes with pid, arrival_time, burst_time, priority (optional).
+- CSV with header pid,arrival_time,burst_time,priority.
+
+Why it is useful
+- Teaching or learning OS scheduling: see fairness vs. efficiency trade-offs live.
+- Prototyping policies: tweak quantum or priorities and immediately observe impacts.
+- Benchmarking workloads: compare average waiting, turnaround, and response across algorithms on the same input.
+
+Quick start
+- Start: python -m scheduler_cli menu
+- Explore examples in examples/; adjust quantum for RR/MLFQ; try compare to see trade-offs side by side.
+
