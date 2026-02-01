@@ -22,3 +22,6 @@ Talking points for the report:
 - **Throughput vs. preemption**: MLFQ may reduce response for short jobs; check if it helps urgent flights without starving long ones.
 
 
+
+
+
